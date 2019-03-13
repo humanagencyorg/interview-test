@@ -1,0 +1,24 @@
+default: &default
+  adapter: postgresql
+  password: <%= ENV['HUMANIZE_DATABASE_PASSWORD'] %>
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 20 } %>
+  host: localhost
+
+development:
+  <<: *default
+  # Get username from env or use default value: postgres
+  username: <%= ENV.fetch("HUMANIZE_DATABASE_USERNAME", "postgres") %>
+  database: humanize_development
+
+test:
+  <<: *default
+  database: humanize_test
+
+staging:
+  <<: *default
+  database: humanize_staging
+
+production:
+  <<: *default
+  database: humanize_production
