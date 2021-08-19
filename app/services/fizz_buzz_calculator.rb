@@ -4,6 +4,7 @@
 # else return number
 
 class FizzBuzzCalculator
-	def initialize; end
-	def call; end
+  def initialize; end
+
+  def call; end
 end
